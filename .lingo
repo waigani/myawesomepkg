@@ -1,0 +1,22 @@
+lexicons:
+  - codelingo/common as _
+  - codelingo/go
+
+tenets:
+- name: find-funcs
+  doc: Example tenet that finds all functions.
+  comment: Func decl with if statement.
+  match:
+    <go.func_decl:
+      go.assign_stmt:
+        go.ident:
+          type: "error"
+      !go.if_stmt:
+        go.binary_expr:
+          go.ident:
+            type: "error"
+        go.call_expr
+         # go.selector_expr:
+         #   name: "Trace"
+         #   go.ident:
+         #     name: "errors"
