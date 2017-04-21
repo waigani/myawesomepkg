@@ -5,7 +5,7 @@ lexicons:
 tenets:
 - name: find-funcs
   doc: Example tenet that finds all functions.
-  comment: Func decl with if statement.
+  comment: Please wrap error in error.Trace.
   match:
     <go.func_decl:
       go.assign_stmt:
