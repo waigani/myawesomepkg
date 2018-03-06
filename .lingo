@@ -1,22 +1,20 @@
-lexicons:
-  - codelingo/common as _
-  - codelingo/go
-
 tenets:
-- name: find-funcs
-  doc: Example tenet that finds all functions.
-  comment: Please wrap error in error.Trace.
-  match:
-    <go.func_decl:
-      go.assign_stmt:
-        go.ident:
-          type: "error"
-      !go.if_stmt:
-        go.binary_expr:
-          go.ident:
+  - bots:
+      codelingo/clair:
+        name: wrap_errs
+        doc: Example tenet that finds all functions.
+        comments: Please wrap error in error.Trace.
+    query: |
+      # import codelingo/ast/common/0.0.0
+      import codelingo/ast/go/0.0.0
+
+      @ clair.comment
+      go.func_decl({depth: any}):
+        go.assign_stmt({depth: any}): 
+          go.ident({depth: any}):
             type: "error"
-        go.call_expr
-         # go.selector_expr:
-         #   name: "Trace"
-         #   go.ident:
-         #     name: "errors"
+        !go.if_stmt({depth: any}):
+          go.binary_expr:
+            go.ident({depth: any}):
+              type: "error"
+          go.call_expr
