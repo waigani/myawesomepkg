@@ -1,11 +1,10 @@
 tenets:
-  - bots:
+  - name: wrap_errs
+    doc: Ensure all errors are handled with the errors package.
+    bots:
       codelingo/clair:
-        name: wrap_errs
-        doc: Example tenet that finds all functions.
         comments: Please wrap error in error.Trace.
     query: |
-      # import codelingo/ast/common/0.0.0
       import codelingo/ast/go/0.0.0
 
       @ clair.comment
