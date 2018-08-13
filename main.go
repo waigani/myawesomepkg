@@ -8,6 +8,8 @@ import (
 
 var bob int
 
+const sam = "sam"
+
 func ifStatementWithoutError(arg int) (int, error) {
 	if arg == 42 {
 		return -1, errors.New("can't work with 42")
