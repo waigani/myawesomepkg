@@ -1,7 +1,7 @@
 tenets:
   - name: wrap_errs
     doc: Ensure all errors are handled with the errors package.
-    bots:
+    flows:
       codelingo/review:
         comments: Please wrap error in error.Trace.
     query: |
@@ -10,13 +10,13 @@ tenets:
       )
 
       @ review.comment
-      go.func_decl({depth: any}):
-        go.assign_stmt({depth: any}): 
-          go.ident({depth: any}):
-            type: "error"
+      go.func_decl(depth = any):
+        go.assign_stmt(depth = any): 
+          go.ident(depth = any):
+            type == "error"
         exclude:
-          go.if_stmt({depth: any}):
+          go.if_stmt(depth = any):
             go.binary_expr:
-              go.ident({depth: any}):
-                type: "error"
+              go.ident(depth = any):
+                type == "error"
             go.call_expr
