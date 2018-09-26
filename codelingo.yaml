@@ -3,7 +3,7 @@ tenets:
     doc: Ensure all errors are handled with the errors package.
     flows:
       codelingo/review:
-        comments: Please wrap error in error.Trace.
+        comment: Please wrap error in error.Trace.
     query: |
       import (
         codelingo/ast/go
