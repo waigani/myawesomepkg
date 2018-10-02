@@ -37,6 +37,14 @@ func untracedError() error {
 	return nil
 }
 
+func sayHi() error {
+	num, err := ifStatementWithoutError()
+	if err != nil {
+		return err
+	}
+	print(num)
+}
+
 func unhandledError() error {
 	var err error
 	result, err := ifStatementWithoutError(42)
