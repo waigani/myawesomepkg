@@ -27,6 +27,14 @@ func handledError() error {
 	return nil
 }
 
+func sayHi() error {
+	num, err := ifStatementWithoutError()
+	if err != nil {
+		return err
+	}
+	print(num)
+}
+
 func untracedError() error {
 	var err error
 	result, err := ifStatementWithoutError(12)
