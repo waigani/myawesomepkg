@@ -37,16 +37,6 @@ func untracedError() error {
 	return nil
 }
 
-func untracedError2() error {
-	var err error
-	result, err := ifStatementWithoutError(12)
-	if err != nil {
-		return err
-	}
-	fmt.Println(result)
-	return nil
-}
-
 func unhandledError() error {
 	var err error
 	result, err := ifStatementWithoutError(42)
