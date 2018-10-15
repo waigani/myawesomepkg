@@ -45,7 +45,7 @@ func unhandledError() error {
 	return nil
 }
 
-func unhandledErrorWithIfStatementx() error {
+func unhandledErrorWithIfStatement() error {
 	var err error
 	_, err = ifStatementWithoutError(23)
 	if true {
