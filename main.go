@@ -27,6 +27,7 @@ func handledError() error {
 	return nil
 }
 
+// new comment
 func untracedError() error {
 	var err error
 	result, err := ifStatementWithoutError(12)
@@ -37,6 +38,7 @@ func untracedError() error {
 	return nil
 }
 
+// new comment
 func unhandledError() error {
 	var err error
 	result, err := ifStatementWithoutError(42)
@@ -45,6 +47,7 @@ func unhandledError() error {
 	return nil
 }
 
+// new comment
 func unhandledErrorWithIfStatement() error {
 	var err error
 	_, err = ifStatementWithoutError(23)
