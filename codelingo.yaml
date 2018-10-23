@@ -3,10 +3,10 @@ tenets:
     flows:
       codelingo/review:
         comment: |
-	 Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
-	 ```suggestion
-				errors.Trace(error)
-	 ```
+         Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
+         ```suggestion
+         			errors.Trace(error)
+         ```
     query: |
       import (
         codelingo/ast/go
