@@ -2,11 +2,7 @@ tenets:
   - name: wrap_errs
     flows:
       codelingo/review:
-        comment: |
-         Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
-         ```suggestion
-         			errors.Trace(error)
-         ```
+        comment: Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
     query: |
       import (
         codelingo/ast/go
@@ -31,6 +27,41 @@ tenets:
                 go.args:
                   go.ident:
                     name == errname
-            
+                    
+  - name: wrap-errs-suggest
+    flows:
+      codelingo/review:
+        comment: |
+         Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
+         ```suggestion
+         			errors.Trace(error)
+         ```
+    query: |
+      import (
+        codelingo/ast/go
+      )
+
+      go.func_decl(depth = any):
+        go.assign_stmt(depth = any):
+          go.lhs:
+            go.ident:
+              @var errorVar
+              name as errname
+              type == "error"
+              
+        go.return_stmt(depth = any):
+          exclude:
+            go.results:
+              go.call_expr:
+                go.selector_expr:
+                  go.ident:
+                    name == "Trace"
+                go.args:
+                  go.ident:
+                    name == errname
+              include:
+                @review comment
+                go.ident(depth = any):
+                  name == errname
 
 
