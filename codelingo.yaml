@@ -5,7 +5,7 @@ tenets:
         comment: |
          Please wrap the error var "{{errorVar}}" in error.Trace when returning it.
          ```suggestion
-              return errors.Trace(error)
+              return errors.Trace({{errorVar}})
          ```
     query: |
       import (
