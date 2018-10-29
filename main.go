@@ -41,7 +41,7 @@ func untracedError2() error {
 	var err error
 	result, err := ifStatementWithoutError(12)
 	if err != nil {
-		return err
+     return errors.Trace(err)
 	}
 	fmt.Println(result)
 	return nil
