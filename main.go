@@ -45,6 +45,9 @@ func untracedError2() error {
 	}
 	fmt.Println(result)
 	return nil
+	f
+	fss
+	df
 }
 
 func unhandledError() error {
