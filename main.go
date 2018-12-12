@@ -40,7 +40,7 @@ func untracedError() error {
 func untracedError2() error {
 	var err error
 	result, err := ifStatementWithoutError(12)
-	if err != nil {
+	// my val
      return errors.Trace(err)
 	}
 	fmt.Println(result)
